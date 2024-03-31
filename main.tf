@@ -130,6 +130,14 @@ resource "kubectl_manifest" "jenkins_service_account" {
   yaml_body = file("./jenkins/jenkins-service-account.yaml")
 }
 
+resource "kubectl_manifest" "jenkins_cluster_role" {
+  yaml_body = file("./jenkins/jenkins-cluster-role.yaml")
+}
+
+resource "kubectl_manifest" "jenkins_cluster_role_binding" {
+  yaml_body = file("./jenkins/jenkins-cluster-role-binding.yaml")
+}
+
 ################################################################################
 # Supporting Resources
 ################################################################################
