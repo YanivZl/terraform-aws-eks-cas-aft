@@ -7,13 +7,13 @@ variable "cluster_name" {
 variable "region" {
   description = "Code of the region"
   type        = string
-  default     = "us-west-1"
+  default     = "us-west-2"
 }
 
 variable "azs" {
   description = "List of availabity zones"
   type        = list(string)
-  default     = ["us-west-1a", "us-west-1b"]
+  default     = ["us-west-2a", "us-west-2b"]
 }
 
 variable "vpc_cidr" {
