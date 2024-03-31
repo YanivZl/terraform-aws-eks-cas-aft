@@ -1,8 +1,8 @@
 locals {
   tags = {
     Name        = var.cluster_name
-    Environment = "Prod"
-    Description = "Capitolis DevOps Task"
+    Environment = "Development"
+    Description = "AFT DevOps Task"
   }
 }
 
@@ -103,7 +103,7 @@ module "eks_blueprints_addons" {
       create_namespace = true
 
       values = [
-        "${file("./jenkins/jenkins-values.yaml")}"
+        "${file("./jenkins/jenkins-chart-values.yaml")}"
       ]
 
       set_sensitive = [
