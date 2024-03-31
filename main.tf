@@ -127,14 +127,17 @@ module "eks_blueprints_addons" {
 ################################################################################
 
 resource "kubectl_manifest" "jenkins_service_account" {
+  depends_on = [ module.eks_blueprints_addons.helm_releases ]
   yaml_body = file("./jenkins/jenkins-service-account.yaml")
 }
 
 resource "kubectl_manifest" "jenkins_cluster_role" {
+  depends_on = [ module.eks_blueprints_addons.helm_releases ]
   yaml_body = file("./jenkins/jenkins-cluster-role.yaml")
 }
 
 resource "kubectl_manifest" "jenkins_cluster_role_binding" {
+  depends_on = [ module.eks_blueprints_addons.helm_releases ]
   yaml_body = file("./jenkins/jenkins-cluster-role-binding.yaml")
 }
 
